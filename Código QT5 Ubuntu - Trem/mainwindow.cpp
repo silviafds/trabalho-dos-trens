@@ -8,12 +8,11 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
 
     //Cria o trem com seu (ID, posição X, posição Y)
-    trem1 = new Trem(1,160,10);
-    trem2 = new Trem(2,430,10);
-    trem3 = new Trem(3,20,140);
-    trem4 = new Trem(4,290,140);
-    trem5 = new Trem(5,550,140);
-
+    trem1 = new Trem(1,170,20);
+    trem2 = new Trem(2,440,20);
+    trem3 = new Trem(3,50,140);
+    trem4 = new Trem(4,300,140);
+    trem5 = new Trem(5,570,140);
 
     /*
      * Conecta o sinal UPDATEGUI à função UPDATEINTERFACE.
@@ -39,13 +38,13 @@ void MainWindow::updateInterface(int id, int x, int y){
     case 2: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
         ui->label_trem2->setGeometry(x,y,21,17);
         break;
-    case 3: //Atualiza a posição do objeto da tela (quadrado) que representa o trem1
+    case 3: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
         ui->label_trem3->setGeometry(x,y,21,17);
         break;
-    case 4: //Atualiza a posição do objeto da tela (quadrado) que representa o trem1
+    case 4: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
         ui->label_trem4->setGeometry(x,y,21,17);
         break;
-    case 5: //Atualiza a posição do objeto da tela (quadrado) que representa o trem1
+    case 5: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
         ui->label_trem5->setGeometry(x,y,21,17);
         break;
     default:
@@ -61,11 +60,11 @@ MainWindow::~MainWindow()
 /*
  * Ao clicar, trens começam execução
  */
-void MainWindow::on_pushButton_clicked() 
+void MainWindow::on_pushButton_clicked()
 {
     trem1->start();
-    trem2->start();
-    trem5->start();
+    trem2->start();    
+    trem3->start();
     trem4->start();
     trem5->start();
 }
