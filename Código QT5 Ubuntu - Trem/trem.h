@@ -1,7 +1,8 @@
-#ifndef TREM_H
-#define TREM_H
+#ifndef SLIDER_H
+#define SLIDER_H
 
 #include <QThread>
+#include <QMutex>
 
 /*
  * Classe Trem herda QThread
@@ -15,6 +16,8 @@ class Trem: public QThread{
 public:
     Trem(int,int,int);  //construtor
     void run();         //função a ser executada pela thread
+    void setVelocity(int);  //função para mudar velocidade do trem
+    void move();
 
 
 //Cria um sinal

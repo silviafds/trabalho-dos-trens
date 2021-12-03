@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -27,6 +28,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(trem4,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     connect(trem5,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
 
+    connect(ui->horizontalSlider_blue,SIGNAL(valueChanged(int)),this,SLOT(updateVelocity(int)));
+    connect(ui->horizontalSlider_green,SIGNAL(valueChanged(int)),this,SLOT(updateVelocity(int)));
+    connect(ui->horizontalSlider_pink,SIGNAL(valueChanged(int)),this,SLOT(updateVelocity(int)));
+    connect(ui->horizontalSlider_purple,SIGNAL(valueChanged(int)),this,SLOT(updateVelocity(int)));
+    connect(ui->horizontalSlider_red,SIGNAL(valueChanged(int)),this,SLOT(updateVelocity(int)));
 }
 
 //Função que será executada quando o sinal UPDATEGUI for emitido
@@ -38,18 +44,25 @@ void MainWindow::updateInterface(int id, int x, int y){
     case 2: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
         ui->label_trem2->setGeometry(x,y,21,17);
         break;
-    case 3: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
+    case 3: //Atualiza a posição do objeto da tela (quadrado) que representa o trem3
         ui->label_trem3->setGeometry(x,y,21,17);
         break;
-    case 4: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
+    case 4: //Atualiza a posição do objeto da tela (quadrado) que representa o trem4
         ui->label_trem4->setGeometry(x,y,21,17);
         break;
-    case 5: //Atualiza a posição do objeto da tela (quadrado) que representa o trem2
+    case 5: //Atualiza a posição do objeto da tela (quadrado) que representa o trem5
         ui->label_trem5->setGeometry(x,y,21,17);
         break;
     default:
         break;
     }
+}
+
+void MainWindow::updateVelocity(int value){
+    /* TODO: Receber quem está alterando o valor, para então
+     *       atualizar a velocidade do respectivo trem
+     */
+    std::cout << value << std::endl;
 }
 
 MainWindow::~MainWindow()

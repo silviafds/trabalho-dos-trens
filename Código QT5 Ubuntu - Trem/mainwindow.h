@@ -19,6 +19,7 @@ public:
 
 public slots:
     void updateInterface(int,int,int);
+    void updateVelocity(int);
 
 private slots:
     void on_pushButton_clicked();
