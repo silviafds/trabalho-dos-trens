@@ -2667,10 +2667,10 @@
      <enum>Qt::Horizontal</enum>
     </property>
    </widget>
+   <zorder>label_trilho2_2</zorder>
    <zorder>label_trilho1_4</zorder>
    <zorder>label_trilho4_2</zorder>
    <zorder>label_trilho4_6</zorder>
-   <zorder>label_trilho2_2</zorder>
    <zorder>label_trilho2</zorder>
    <zorder>label_trilho3</zorder>
    <zorder>label_trilho4</zorder>

@@ -1,13 +1,14 @@
 #include "trem.h"
 #include <QtCore>
 
+#define SEGURO 2
 #define NO_TRILHO 1
 #define PARADO 0
 
-#define QTD 5
+#define QTD 7
 int estado[QTD];
 
-QMutex regiao_0;
+QMutex regiao_trem[QTD];
 
 //Construtor
 Trem::Trem(int ID, int x, int y){
@@ -23,8 +24,48 @@ void Trem::setVelocity(int value){
 
 //Função a ser executada após executar trem->START
 void Trem::run(){
+    if(ID == 1){
+        setVelocity(30);
+    }
+    if(ID == 3){
+        setVelocity(75);
+    }
+    if(ID == 5){
+        setVelocity(85);
+    }
     while(true){
-        move();
+        if(((x >= 410 && x <= 440) || (x >= 460 && x <= 480))
+                && (y >= 20 && y <= 140)){
+            regiao_trem[0].lock();
+            move();
+            regiao_trem[0].unlock();
+        }
+        else if((x == 170 && (y >= 120 || y <= 170)) || ((x >= 150 && x <= 340) && y == 140)){
+            regiao_trem[1].lock();
+            move();
+            regiao_trem[1].unlock();
+        }
+        else if(((x >= 280 && x <= 300) || (x >= 320 && x <= 340))
+                && (y >= 140 && y <= 270)){
+            regiao_trem[5].lock();
+            move();
+            regiao_trem[5].unlock();
+        }
+        else if(((x >= 550 && x <= 570) || (x >= 590 && x <= 610))
+                && (y >= 140 && y <= 270)){
+            regiao_trem[6].lock();
+            move();
+            regiao_trem[6].unlock();
+        }
+        else if(((x >= 550 && x <= 570) || (x >= 590 && x <= 610))
+                && (y >= 140 && y <= 270)){
+            regiao_trem[6].lock();
+            move();
+            regiao_trem[6].unlock();
+        }
+        else{
+            move();
+        }
     }
 }
 
