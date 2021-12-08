@@ -1,11 +1,8 @@
 #include "trem.h"
 #include <QtCore>
+#include <iostream>
 
-#define SEGURO 2
-#define NO_TRILHO 1
-#define PARADO 0
-
-#define QTD 7
+#define QTD 8
 int estado[QTD];
 
 QMutex regiao_trem[QTD];
@@ -15,24 +12,15 @@ Trem::Trem(int ID, int x, int y){
     this->ID = ID;
     this->x = x;
     this->y = y;
-    velocidade = 50;
+    velocidade = 100;
 }
 
-void Trem::setVelocity(int value){
+void Trem::updateVelocity(int value){
     velocidade = value;
 }
 
 //Função a ser executada após executar trem->START
 void Trem::run(){
-    if(ID == 1){
-        setVelocity(30);
-    }
-    if(ID == 3){
-        setVelocity(75);
-    }
-    if(ID == 5){
-        setVelocity(85);
-    }
     while(true){
         if(((x >= 410 && x <= 440) || (x >= 460 && x <= 480))
                 && (y >= 20 && y <= 140)){

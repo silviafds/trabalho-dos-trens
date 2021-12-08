@@ -28,11 +28,11 @@ MainWindow::MainWindow(QWidget *parent) :
     connect(trem4,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
     connect(trem5,SIGNAL(updateGUI(int,int,int)),SLOT(updateInterface(int,int,int)));
 
-    connect(ui->horizontalSlider_blue,SIGNAL(valueChanged(int)),this,SLOT(updateVelocity(int)));
-    connect(ui->horizontalSlider_green,SIGNAL(valueChanged(int)),this,SLOT(updateVelocity(int)));
-    connect(ui->horizontalSlider_pink,SIGNAL(valueChanged(int)),this,SLOT(updateVelocity(int)));
-    connect(ui->horizontalSlider_purple,SIGNAL(valueChanged(int)),this,SLOT(updateVelocity(int)));
-    connect(ui->horizontalSlider_red,SIGNAL(valueChanged(int)),this,SLOT(updateVelocity(int)));
+    connect(ui->horizontalSlider_purple,SIGNAL(valueChanged(int)),trem1,SLOT(updateVelocity(int)));
+    connect(ui->horizontalSlider_blue,SIGNAL(valueChanged(int)),trem2,SLOT(updateVelocity(int)));
+    connect(ui->horizontalSlider_red,SIGNAL(valueChanged(int)),trem3,SLOT(updateVelocity(int)));
+    connect(ui->horizontalSlider_green,SIGNAL(valueChanged(int)),trem4,SLOT(updateVelocity(int)));
+    connect(ui->horizontalSlider_pink,SIGNAL(valueChanged(int)),trem5,SLOT(updateVelocity(int)));
 }
 
 //Função que será executada quando o sinal UPDATEGUI for emitido
@@ -58,13 +58,6 @@ void MainWindow::updateInterface(int id, int x, int y){
     }
 }
 
-void MainWindow::updateVelocity(int value){
-    /* TODO: Receber quem está alterando o valor, para então
-     *       atualizar a velocidade do respectivo trem
-     */
-    std::cout << value << std::endl;
-}
-
 MainWindow::~MainWindow()
 {
     delete ui;
@@ -80,16 +73,4 @@ void MainWindow::on_pushButton_clicked()
     trem3->start();
     trem4->start();
     trem5->start();
-}
-
-/*
- * Ao clicar, trens param execução
- */
-void MainWindow::on_pushButton_2_clicked()
-{
-    trem1->terminate();
-    trem2->terminate();
-    trem3->terminate();
-    trem4->terminate();
-    trem5->terminate();
 }

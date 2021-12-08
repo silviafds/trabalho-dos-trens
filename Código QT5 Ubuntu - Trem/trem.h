@@ -16,13 +16,17 @@ class Trem: public QThread{
 public:
     Trem(int,int,int);  //construtor
     void run();         //função a ser executada pela thread
-    void setVelocity(int);  //função para mudar velocidade do trem
     void move();
 
 
 //Cria um sinal
 signals:
     void updateGUI(int,int,int);
+
+//Cria um slot
+public slots:
+    void updateVelocity(int);
+
 
 private:
    int x;           //posição X do trem na tela
