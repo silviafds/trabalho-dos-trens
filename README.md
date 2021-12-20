@@ -12,5 +12,5 @@ Não conseguimos desenvolver uma solução para resolver a colisão do trem 2 co
 ##
 
 ## Atividade desenvolvida por:
-- Raíssa Santos 20200038622
-- Silvia Goes Fernandes 20200144545
+- Raíssa Santos
+- Silvia Goes Fernandes
