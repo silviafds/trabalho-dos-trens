@@ -42,8 +42,6 @@ void Trem::run(){
             break;
         case 2:
             if(x == 710 && y == 120){ // usar trilhos: 3 e 4
-                //regiao_trem[3].lock();
-                //regiao_trem[3].unlock();
                 regiao_trem[4].lock();
             }
             else if(x == 550 && y == 140){ // saiu do trilho 4
@@ -67,11 +65,7 @@ void Trem::run(){
             }
             else if(x == 280 && y == 140){ // sair do trilho 1 e entrar no trilho 5
                 regiao_trem[1].unlock();
-                //regiao_trem[2].lock();
                 regiao_trem[5].lock();
-            }
-            else if(x == 300 && y == 160){ // entrou no trilho 5 e saiu do trilho 2
-                //regiao_trem[2].unlock();
             }
             else if(x == 280 && y == 270){ // saiu do trilho 5
                 regiao_trem[5].unlock();
@@ -80,8 +74,6 @@ void Trem::run(){
             break;
         case 4:
             if(x == 300 && y == 160){ // entrar no trilho 2
-                regiao_trem[3].lock();
-                regiao_trem[3].unlock();
                 regiao_trem[1].lock();
                 regiao_trem[2].lock();
             }
@@ -89,22 +81,12 @@ void Trem::run(){
                 regiao_trem[1].unlock();
                 regiao_trem[5].unlock();
             }
-            /*
-            else if(x == 420 && y == 140){ // saiu do trilho 2 e entrou no trilho 3
-                regiao_trem[3].lock();
-            }
-            */
             else if(x == 460 && y == 140){ // saiu do trilho 2 e entrou no trilho 3
                 regiao_trem[2].unlock();
             }
             else if(x == 550 && y == 140){ // entrar no trilho 6
                 regiao_trem[6].lock();
             }
-            /*
-            else if(x == 570 && y == 160){ // saiu do trilho 3 e entrou no trilho 6
-                regiao_trem[3].unlock();
-            }
-            */
             else if(x == 550 && y == 270){ // saiu do trilho 6
                 regiao_trem[6].unlock();
             }
