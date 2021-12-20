@@ -17,6 +17,7 @@ public:
     Trem(int,int,int);  //construtor
     void run();         //função a ser executada pela thread
     void move();
+    void regiao_0();
 
 
 //Cria um sinal

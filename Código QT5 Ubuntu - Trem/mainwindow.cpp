@@ -15,6 +15,12 @@ MainWindow::MainWindow(QWidget *parent) :
     trem4 = new Trem(4,300,140);
     trem5 = new Trem(5,570,140);
 
+    trem1->start();
+    trem2->start();
+    trem3->start();
+    trem4->start();
+    trem5->start();
+
     /*
      * Conecta o sinal UPDATEGUI à função UPDATEINTERFACE.
      * Ou seja, sempre que o sinal UPDATEGUI foi chamado, será executada a função UPDATEINTERFACE.
@@ -61,16 +67,4 @@ void MainWindow::updateInterface(int id, int x, int y){
 MainWindow::~MainWindow()
 {
     delete ui;
-}
-
-/*
- * Ao clicar, trens começam execução
- */
-void MainWindow::on_pushButton_clicked()
-{
-    trem1->start();
-    trem2->start();    
-    trem3->start();
-    trem4->start();
-    trem5->start();
 }
