@@ -9,3 +9,8 @@ Para a resolução do problema proposto, tentamos coordenar a entrada dos trens 
 
 # Dificuldades
 Não conseguimos desenvolver uma solução para resolver a colisão do trem 2 com o tem 4 no trilho 3, a orientação baseada no documento.
+##
+
+Atividade desenvolvida por:
+- Raíssa Santos 20200038622
+- Silvia Goes Fernandes 20200144545
