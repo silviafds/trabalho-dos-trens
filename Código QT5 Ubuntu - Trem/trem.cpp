@@ -25,57 +25,87 @@ void Trem::run(){
     while(true){
         switch(ID){
         case 1:     //Trem 1
-            if(x == 420 && y == 20){
+            if(x == 420 && y == 20){ // entrar no trilho 0
                 regiao_trem[0].lock();
             }
-            else if(x == 420 && y == 140){
-                regiao_trem[0].unlock();
+            else if(x == 440 && y == 120){ // vai sair do trilho 0 e usar trilhos: 1 e 2
+                regiao_trem[1].lock();
                 regiao_trem[2].lock();
             }
-            else if(x == 280  && y == 140){
-                regiao_trem[2].unlock();
-                regiao_trem[1].lock();
+            else if(x == 420 && y == 140){ // saiu do trilho 0
+                regiao_trem[0].unlock();
             }
-            else if(x == 170 && y == 120){
+            else if(x == 280  && y == 140){ // saiu do trilho 2
+                regiao_trem[2].unlock();
+            }
+            else if(x == 170 && y == 120){ // saiu do trilho 1
                 regiao_trem[1].unlock();
             }
             move();
             break;
         case 2:
-            if(x == 710 && y == 120){
+            if(x == 710 && y == 120){ // usar trilhos: 3 e 4
+                regiao_trem[3].lock();
                 regiao_trem[4].lock();
             }
-            else if(x == 550 && y == 140){
+            else if(x == 550 && y == 140){ // saiu do trilho 4
                 regiao_trem[4].unlock();
-                regiao_trem[3].lock();
             }
-            else if(x == 460 && y == 140){
-                regiao_trem[3].unlock();
+            else if(x == 460 && y == 140){ // entrar no trilho 0
                 regiao_trem[0].lock();
             }
-            else if(x == 460 && y == 20){
+            else if(x == 440 && y == 120){ // saiu do trilho 3
+                regiao_trem[3].unlock();
+            }
+            else if(x == 460 && y == 20){  // saiu do trilho 0
                 regiao_trem[0].unlock();
             }
             move();
             break;
         case 3:
-            if(x == 150 && y == 140){
+            if(x == 150 && y == 140){ // entrar no trilho 1
                 regiao_trem[1].lock();
-                regiao_trem[2].lock();
             }
-            else if(x == 280 && y == 140){
+            else if(x == 280 && y == 140){ // sair do trilho 1 e entrar no trilho 5
                 regiao_trem[1].unlock();
+                regiao_trem[2].lock();
                 regiao_trem[5].lock();
             }
-            else if(x == 300 && y == 160){
+            else if(x == 300 && y == 160){ // entrou no trilho 5 e saiu do trilho 2
                 regiao_trem[2].unlock();
             }
-            else if(x == 280 && y == 270){
+            else if(x == 280 && y == 270){ // saiu do trilho 5
                 regiao_trem[5].unlock();
             }
             move();
             break;
         case 4:
+            if(x == 300 && y == 160){ // entrar no trilho 2
+                regiao_trem[1].lock();
+                regiao_trem[2].lock();
+                regiao_trem[3].lock();
+            }
+            else if(x == 320 && y == 140){ // entrou no trilho 2
+                regiao_trem[1].unlock();
+                regiao_trem[5].unlock();
+            }
+            else if(x == 460 && y == 140){ // saiu do trilho 2 e entrou no trilho 3
+                regiao_trem[2].unlock();
+            }
+            else if(x == 550 && y == 140){ // entrar no trilho 6
+                regiao_trem[4].lock();
+                regiao_trem[6].lock();
+            }
+            else if(x == 570 && y == 160){ // saiu do trilho 3 e entrou no trilho 6
+                regiao_trem[3].unlock();
+                regiao_trem[4].unlock();
+            }
+            else if(x == 550 && y == 270){ // saiu do trilho 6
+                regiao_trem[6].unlock();
+            }
+            else if(x == 320 && y == 270){ // entrar no trilho 5
+                regiao_trem[5].lock();
+            }
             move();
             break;
         case 5:
